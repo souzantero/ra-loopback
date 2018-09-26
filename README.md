@@ -1,10 +1,6 @@
 # Loopback-style REST Client for react-admin
 
-Loopback-style REST Client for [admin-on-rest](https://github.com/marmelab/admin-on-rest), the frontend framework for building admin applications on top of REST services.
-
-## Important note
-
-Because of recent changes of **admin-on-rest**, this module will only support version 0.9.0 (or later) of admin-on-rest.
+Loopback-style REST Client for [react-admin](https://github.com/marmelab/react-admin), the frontend framework for building admin applications on top of REST services.
 
 ## Prerequisite
 
@@ -12,30 +8,26 @@ Because of recent changes of **admin-on-rest**, this module will only support ve
 
 ## How to use
 
-1. `yarn add aor-loopback`
+1. `yarn add ra-loopback`
 2. On your `App.js`, add this:
 
 ```
-import loopbackRestClient from 'aor-loopback';
+import loopbackApiClient from 'ra-loopback';
 
 ...
 
-    <Admin restClient={loopbackRestClient('http://my.api.url/api')} ...>
+    <Admin restClient={loopbackApiClient('http://my.api.url/api')} ...>
 ```
 
 3. If you want this module handle authentication, add this:
 
 ```
-import loopbackRestClient, {authClient} from 'aor-loopback';
+import loopbackApiClient, {authClient} from 'ra-loopback';
 
 ...
 
-    <Admin restClient={loopbackRestClient('http://my.api.url/api')} authClient={authClient('http://my.api.url/api/users/login')} ...>
+    <Admin restClient={loopbackApiClient('http://my.api.url/api')} authClient={authClient('http://my.api.url/api/users/login')} ...>
 ```
-
-## Example
-
-Please check example here: [loopback-aor-boilerplate](https://github.com/kimkha/loopback-aor-boilerplate), you should clone it and change your model later.
 
 ## License
 
