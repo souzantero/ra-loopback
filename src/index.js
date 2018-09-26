@@ -120,7 +120,7 @@ export default (apiUrl, httpClient = fetchJson) => {
             case CREATE:
                 return { data: { ...params.data, id: json.id } };
             case DELETE:
-                return { data: { ...params.data } };
+                return { data: { ...params.data, id: params.id } };
             default:
                 return { data: json };
         }
