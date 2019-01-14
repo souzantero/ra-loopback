@@ -30,7 +30,6 @@ export default (apiUrl, httpClient = fetchJson) => {
      * @returns {Object} { url, options } The HTTP request parameters
      */
     const convertRESTRequestToHTTP = (type, resource, params) => {
-        resource = resource.toLowerCase();
         let url = '';
         const options = {};
         switch (type) {
