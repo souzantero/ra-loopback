@@ -1,5 +1,6 @@
 import {queryParameters, fetchJson} from './fetch';
 import {
+    GET_ANYTHING,
     GET_LIST,
     GET_ONE,
     GET_MANY,
@@ -15,6 +16,7 @@ export * from './authClient';
  *
  * @see https://github.com/strongloop/loopback
  * @example
+ * GET_ANYTHING => GET http://my.api.url/posts
  * GET_LIST     => GET http://my.api.url/posts?filter[sort]="title ASC"&filter[skip]=0&filter[limit]=20
  * GET_ONE      => GET http://my.api.url/posts/123
  * GET_MANY     => GET http://my.api.url/posts?filter[where][or]=[{id:123},{id:456}]
@@ -48,6 +50,17 @@ export default (apiUrl, httpClient = fetchJson) => {
                 url = `${apiUrl}/${resource}?${queryParameters({filter: JSON.stringify(query)})}`;
                 break;
             }
+            case GET_ANYTHING:
+                url = `${apiUrl}/${resource}`;
+
+                if (params) {
+                    for(let param in params) {
+                        const urlObject = new URL(url);
+                        url = urlObject.search ? url.concat(`&${param}=${params[param]}`) : url.concat(`?${param}=${params[param]}`); 
+                    }
+                }
+                
+                break;
             case GET_ONE:
                 url = `${apiUrl}/${resource}/${params.id}`;
                 break;

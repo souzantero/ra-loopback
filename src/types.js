@@ -1,3 +1,4 @@
+export const GET_ANYTHING = 'GET_ANYTHING';
 export const GET_LIST = 'GET_LIST';
 export const GET_ONE = 'GET_ONE';
 export const GET_MANY = 'GET_MANY';
